@@ -14,36 +14,37 @@ b()
 
 function sample(){
     console.log(this)
-    this.newVariable ="Hello"
+    this.newVariable = "Hey"
 }
 
 sample()
-
 console.log(newVariable)
 
+var c = {
+    firstName : 'Scott',
+    display: function(){
+        console.log(this)
+    }  
+}
+
+c.display()
+
 var obj = {
-    firstName: 'Uma', // Property
-    log: function(){  // Method
-        console.log(this)
-    }
-}
+    fname :'Uma',
+    setName: function(){
+        var self= this
+        console.log(self)
+        self.fname = 'Mahesh'
+        console.log(self)
 
-obj.log()
+        var updateName = function(){
+            self.fname ="Umesh"
+            console.log(self)
 
-
-var object1 = {
-    firstName: 'Uma', 
-    log: function(){  
-        console.log(this)
-        this.firstName = "Mahesh"
-        console.log(this)
-        
-        var setName = function(){
-            this.firstName = "Umesh"
-            console.log(this)
         }
-        setName()
+
+        updateName() 
     }
 }
 
-object1.log()
+obj.setName()
